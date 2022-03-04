@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;700&family=Open+Sans:ital,wght@0,300;0,700;1,500&family=Source+Sans+Pro:wght@700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+.card{
+    width: 100%;
+    position: relative;
+    height: auto;
+    display: flex;
+}
+.card .singlebox{
+    width: 33%;
+    height: 400px;
+    position: relative;
+    margin: 50px 20px;
+    clip-path: circle(33%);
+    justify-content: center;
+    transition: 0.5s all ease;
+    transition-delay: 0.5s;
+    animation: butter 3s infinite linear;
+}
+@keyframes butter {
+    0%{
+        clip-path: circle(30%);
+    }
+    50%{
+        clip-path: circle(50%);
+    }
+    100%{
+        clip-path: circle(45%);
+    }
+}
+.card .singlebox:hover{
+    clip-path: circle(45%);
+}
+.card .singlebox::before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 0%;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0);
+    transition: 0.8s all ease;
+    transition-delay: 0.5s;
+}
+.card .singlebox:hover::before{
+    background: rgba(0,0,0,0.5);
+    height: 100%;
+}
+.card .singlebox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card .singlebox .content {
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    height: 0;
+    transform: translate(-50%,-50%);
+    transition: 0.5s all ease;
+    transition-delay: 0.6s;
+}
+.card .singlebox:hover .content{
+    top: 50%;
+    font-size: 23px;
+}
+.card .singlebox .content h2 {
+    color: #ddd;
+    font-weight: 700;
+    font-size: 2em;
+}
+.card .singlebox .content ul {
+    display: flex;
+    margin:20px;
+    justify-content: space-between;
+}
+.card .singlebox .content ul li a i{
+    color: #fff;
+    font-size: 22px;
+    transition: 0.5s all ease;
+}
+.card .singlebox .content ul li a i:hover{
+    color: #ddd;
+    transform: rotate(360deg);
+}
